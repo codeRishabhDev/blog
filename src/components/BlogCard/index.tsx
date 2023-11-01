@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Title, Author, Date, Content, Image } from './BlogStyle';
+import { Card, Title, Author, Date, Content, Image, ContantWrapper, UserWrapper, UserContainer } from './BlogStyle';
 
 interface BlogCardProps {
     title: string;
@@ -13,11 +13,18 @@ const BlogCard: React.FC<BlogCardProps> = ({ title, author, date, content, image
     return (
         <header>
             <Card>
-                {imageUrl && <Image src={imageUrl} alt={title} />}
-                <Title>{title}</Title>
-                <Author>By {author}</Author>
-                <Date>Published on {date}</Date>
-                <Content>{content}</Content>
+                <div>
+                    {imageUrl && <Image src={imageUrl} alt={title} />}
+                </div>
+                <ContantWrapper>
+                    <Title>{title}</Title>
+                    <Date>Published on {date}</Date>
+                    <Content>{content}</Content>
+                    <UserContainer>
+                        <UserWrapper>A</UserWrapper>
+                        <Author>By {author}</Author>
+                    </UserContainer>
+                </ContantWrapper>
 
             </Card>
         </header>

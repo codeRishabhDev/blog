@@ -9,6 +9,8 @@ export const Card = styled.div`
   align-items: center;
   cursor: pointer;
   transition: transform 0.1s;
+  max-width: 300px;
+  width: 100%;
 `;
 
 export const Title = styled.h2`
@@ -20,6 +22,7 @@ export const Author = styled.p`
   color: #555;
   font-size: 0.8rem;
   margin: 8px 0;
+  margin-left: 10px;
 `;
 
 export const Date = styled.p`
@@ -38,3 +41,22 @@ export const Image = styled.img`
   height: auto;
   object-fit: cover; 
 `;
+
+export const ContantWrapper = styled.div`
+  padding: 15px;
+`
+
+export const UserWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  background: red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+`
+
+export const UserContainer = styled.div`
+  display: flex;
+  align-items: center;
+`
