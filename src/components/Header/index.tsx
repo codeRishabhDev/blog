@@ -1,17 +1,30 @@
 import React from 'react';
 import { HeaderWrapper, WebsiteTitle, MenueWrapper, NavigateLink } from './HeaderStyle';
-import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+import useI18n from '../../hooks/useI18n';
 
 const Header: React.FC = () => {
-  const navigate = useNavigate();
+  const { t } = useTranslation();
+  const { changeLanguage } = useI18n();
+
+  const handleLanguageChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedLanguage = event.target.value;
+    changeLanguage(selectedLanguage);
+  };
+
   return (
     <HeaderWrapper>
       <WebsiteTitle to="/">
         Blog
       </WebsiteTitle>
       <MenueWrapper>
-        <NavigateLink to="/signin">Sign in</NavigateLink>
-        <NavigateLink to="/signup">Sign up</NavigateLink>
+        <select onChange={handleLanguageChange}>
+          <option value="en">English</option>
+          <option value="fr">Français</option>
+          {/* Add more language options as needed */}
+        </select>
+        <NavigateLink to="/signin">{t('signIn')}</NavigateLink>
+        <NavigateLink to="/signup">{t('signUp')}</NavigateLink>
       </MenueWrapper>
     </HeaderWrapper>
   );
